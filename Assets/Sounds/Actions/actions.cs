@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class actions : MonoBehaviour
 {
-    public AudioSource crouchSound, jumpSound;
+    public AudioSource crouchSound, jumpSound, attackSound;
 
     void Update()
     {
@@ -18,10 +18,17 @@ public class actions : MonoBehaviour
             jumpSound.enabled = true;
             crouchSound.enabled = false;
         }
+        else if (Input.GetKey(KeyCode.Mouse0))
+        {
+            attackSound.enabled = true;
+            jumpSound.enabled = false;
+            crouchSound.enabled = false;
+        }
         else
         {
             crouchSound.enabled = false;
             jumpSound.enabled = false;
+            attackSound.enabled = false;
         }
     }
 }
